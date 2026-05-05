@@ -1,0 +1,84 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="logo">
+      <span class="park">Park</span><span class="ping">Ping ⚡</span>
+    </div>
+    
+    <h2>{{ isLoginMode ? 'Welcome Back' : 'Create an Account' }}</h2>
+    <p class="subtitle">{{ isLoginMode ? 'Login to manage your vehicles and QR codes' : 'Join ParkPing to keep your privacy secure' }}</p>
+
+    <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <form (ngSubmit)="onSubmit(authForm)" #authForm="ngForm">
+      
+      <div class="form-group" *ngIf="!isLoginMode">
+        <label for="name">Full Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          ngModel 
+          required 
+          placeholder="John Doe"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="!isLoginMode">
+        <label for="phone">Phone Number (for SMS Alerts)</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          ngModel 
+          required 
+          placeholder="+1234567890"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          ngModel 
+          required 
+          email
+          placeholder="you@example.com"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          ngModel 
+          required 
+          minlength="6"
+          placeholder="••••••••"
+          class="form-control"
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [disabled]="!authForm.valid || isSubmitting">
+        <span *ngIf="!isSubmitting">{{ isLoginMode ? 'Login' : 'Register' }}</span>
+        <span *ngIf="isSubmitting">{{ isLoginMode ? 'Logging in...' : 'Registering...' }}</span>
+      </button>
+    </form>
+
+    <div class="toggle-mode">
+      <p>
+        {{ isLoginMode ? "Don't have an account?" : "Already have an account?" }}
+        <a (click)="toggleMode()">{{ isLoginMode ? 'Sign up' : 'Log in' }}</a>
+      </p>
+    </div>
+  </div>
+</div>

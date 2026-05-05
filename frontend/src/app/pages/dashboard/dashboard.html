@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <div class="logo">
+      <span class="park">Park</span><span class="ping">Ping</span>
+    </div>
+    <div class="user-profile">
+      <span>Welcome, {{ userName }}</span>
+      <button class="action-btn outline" (click)="logout()" style="padding: 5px 10px; font-size: 0.8rem;">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard-content">
+    <div class="header-actions">
+      <h2>My Vehicles</h2>
+      <button routerLink="/add-vehicle" class="neon-btn-primary">+ Add Vehicle</button>
+    </div>
+
+    <div class="vehicles-grid">
+      <div class="vehicle-card" *ngFor="let vehicle of vehicles">
+        <div class="card-header">
+          <h3>{{ vehicle.model }}</h3>
+          <span class="status-badge" [class.active]="vehicle.active">
+            {{ vehicle.active ? 'Active' : 'Inactive' }}
+          </span>
+        </div>
+        <p class="plate-number">{{ vehicle.number }}</p>
+        
+        <div class="card-actions">
+          <button routerLink="/qr-display/{{vehicle.qrId}}" class="action-btn">
+            <span class="icon">🔲</span> View QR
+          </button>
+          <button class="action-btn outline">Edit</button>
+        </div>
+      </div>
+      
+      <div class="vehicle-card empty-card" *ngIf="vehicles.length === 0">
+        <p>No vehicles added yet.</p>
+        <button routerLink="/add-vehicle" class="neon-btn-primary">Add Your First Vehicle</button>
+      </div>
+    </div>
+
+    <div class="recent-activity">
+      <div class="header-actions" style="margin-bottom: 20px;">
+        <h2>Recent Requests</h2>
+        <button class="action-btn outline" (click)="requestNotificationPermission()">
+          🔔 Enable Desktop Alerts
+        </button>
+      </div>
+      <div class="activity-list">
+        <div class="activity-item" *ngFor="let req of recentRequests">
+          <div class="activity-icon" [ngClass]="{'resolved': req.status === 'Resolved', 'pending': req.status === 'Pending'}">
+            {{ req.status === 'Resolved' ? '✅' : '🔔' }}
+          </div>
+          <div class="activity-details">
+            <p class="activity-title">Alert for {{ req.vehicleNumber }}</p>
+            <p class="activity-time">{{ req.status }} • {{ req.time }}</p>
+          </div>
+        </div>
+        
+        <div class="empty-state" *ngIf="recentRequests.length === 0">
+          <p>No recent activity.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
