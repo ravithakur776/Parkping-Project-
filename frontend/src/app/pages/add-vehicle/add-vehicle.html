@@ -1,0 +1,50 @@
+<div class="page-container">
+  <div class="header">
+    <a routerLink="/dashboard" class="back-link">← Back to Dashboard</a>
+    <h2>Add New Vehicle</h2>
+  </div>
+
+  <div class="form-card">
+    <p class="subtitle">Enter your vehicle details to generate a secure QR code.</p>
+
+    <div class="error-msg" *ngIf="errorMessage" style="background: rgba(255, 51, 102, 0.1); color: var(--neon-red); padding: 10px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255, 51, 102, 0.3); font-size: 0.9rem;">
+      {{ errorMessage }}
+    </div>
+
+    <form (ngSubmit)="onSubmit(vehicleForm)" #vehicleForm="ngForm">
+      
+      <div class="form-group">
+        <label for="number">Vehicle Registration Number</label>
+        <input 
+          type="text" 
+          id="number" 
+          name="number" 
+          ngModel 
+          required 
+          placeholder="e.g. MH-12-AB-1234"
+          class="form-control uppercase"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="model">Vehicle Make & Model</label>
+        <input 
+          type="text" 
+          id="model" 
+          name="model" 
+          ngModel 
+          required 
+          placeholder="e.g. Tesla Model 3"
+          class="form-control"
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [disabled]="!vehicleForm.valid || isSubmitting">
+        {{ isSubmitting ? 'Generating QR...' : 'Generate QR Code' }}
+      </button>
+    </form>
+  </div>
+</div>

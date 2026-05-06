@@ -1,0 +1,29 @@
+<div class="page-container">
+  <div class="header">
+    <a routerLink="/dashboard" class="back-link">← Back to Dashboard</a>
+    <h2>Your QR Sticker</h2>
+  </div>
+
+  <div class="qr-card">
+    <div class="qr-wrapper">
+      <qrcode 
+        [qrdata]="qrData" 
+        [width]="256" 
+        [errorCorrectionLevel]="'M'"
+        [margin]="2"
+        [colorDark]="'#0a0f18'"
+        [colorLight]="'#ffffff'">
+      </qrcode>
+    </div>
+    
+    <div class="vehicle-info">
+      <h3>{{ vehicleNumber }}</h3>
+      <p>Print this sticker and paste it on your vehicle's windshield.</p>
+    </div>
+
+    <div class="actions">
+      <button class="neon-btn-primary" (click)="downloadQR()">Download QR Image</button>
+      <button class="action-btn outline">Order Premium Sticker</button>
+    </div>
+  </div>
+</div>

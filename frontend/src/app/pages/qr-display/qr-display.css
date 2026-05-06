@@ -1,0 +1,83 @@
+.page-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.back-link {
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.header h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.qr-card {
+  background: var(--surface-dark);
+  padding: 50px 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.qr-wrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 30px;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+}
+
+.vehicle-info h3 {
+  font-size: 1.8rem;
+  font-family: monospace;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+  color: var(--text-primary);
+}
+
+.vehicle-info p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action-btn.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn.outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.5);
+}
