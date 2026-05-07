@@ -25,7 +25,8 @@
               }
             ],
             "allowedCommonJsDependencies": [
-              "qrcode"
+              "qrcode",
+              "angularx-qrcode"
             ],
             "styles": [
               "src/styles.css"
