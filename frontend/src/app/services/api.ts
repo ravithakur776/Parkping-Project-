@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Api {
-  private apiUrl = 'http://localhost:5001/api';
+  private apiUrl = 'https://parkping-api.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
