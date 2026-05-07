@@ -1,0 +1,68 @@
+/* Global Styles for ParkPing */
+:root {
+  --bg-dark: #0a0f18;
+  --surface-dark: #141c2b;
+  --neon-blue: #00e5ff;
+  --neon-green: #00ff73;
+  --neon-red: #ff3366;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Global utility classes */
+.neon-btn-primary {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.neon-btn-primary:hover {
+  background: var(--neon-blue);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+.neon-btn-alert {
+  background: transparent;
+  color: var(--neon-red);
+  border: 2px solid var(--neon-red);
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.neon-btn-alert:hover {
+  background: var(--neon-red);
+  color: white;
+  box-shadow: 0 0 30px rgba(255, 51, 102, 0.8);
+}
