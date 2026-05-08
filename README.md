@@ -7,6 +7,7 @@
 
 <br>
 
+
 <div align="center">
   <h1>⚡ ParkPing ⚡</h1>
   <p><b>A privacy-first, QR-based vehicle communication platform.</b></p>
